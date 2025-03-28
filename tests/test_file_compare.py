@@ -24,6 +24,13 @@ def test_read_file(tmp_path, content, expected):
     assert read_file(str(test_file)) == expected
 
 
+def test_find_common_lines(temp_files):
+    file1, file2 = temp_files
+    result = find_common_lines(file1, file2)
+    assert result == {"b", "c"}
+
+
+
 def test_write_to_file(tmp_path):
     """Тест для функції, що записує рядки у вихідний файл."""
     output = tmp_path / "output.txt"
