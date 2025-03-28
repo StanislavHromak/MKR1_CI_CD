@@ -11,3 +11,9 @@ def find_common_lines(file1_path, file2_path):
     lines1 = read_file(file1_path)
     lines2 = read_file(file2_path)
     return lines1.intersection(lines2)
+
+def find_different_lines(file1_path, file2_path):
+    """Знаходить рядки, присутні лише в одному з файлів."""
+    lines1 = read_file(file1_path)
+    lines2 = read_file(file2_path)
+    return lines1.symmetric_difference(lines2)
