@@ -25,3 +25,16 @@ def write_to_file(lines, output_path):
     """Записує рядки у вихідний файл."""
     with open(output_path, 'w', encoding='utf-8') as file:
         file.write('\n'.join(sorted(lines)))
+
+
+def compare_files(file1_path, file2_path, same_output='same.txt', diff_output='diff.txt'):
+    """Основна функція для порівняння двох файлів і запису результатів."""
+    common = find_common_lines(file1_path, file2_path)
+    different = find_different_lines(file1_path, file2_path)
+
+    write_to_file(common, same_output)
+    write_to_file(different, diff_output)
+
+
+if __name__ == "__main__":
+    compare_files('file1.txt', 'file2.txt')
