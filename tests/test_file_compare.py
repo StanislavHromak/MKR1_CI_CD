@@ -21,3 +21,11 @@ def test_read_file(tmp_path, content, expected):
     test_file = tmp_path / "test.txt"
     test_file.write_text(content)
     assert read_file(str(test_file)) == expected
+
+
+def test_write_to_file(tmp_path):
+    """Тест для функції, що записує рядки у вихідний файл."""
+    output = tmp_path / "output.txt"
+    lines = {"a", "b"}
+    write_to_file(lines, str(output))
+    assert output.read_text() == "a\nb"
