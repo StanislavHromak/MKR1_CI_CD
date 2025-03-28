@@ -6,6 +6,7 @@ def read_file(file_path):
     except FileNotFoundError:
         return set()
 
+
 def find_common_lines(file1_path, file2_path):
     """Знаходить рядки в обох файлах."""
     lines1 = read_file(file1_path)
