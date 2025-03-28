@@ -30,6 +30,11 @@ def test_find_common_lines(temp_files):
     assert result == {"b", "c"}
 
 
+def test_find_different_lines(temp_files):
+    file1, file2 = temp_files
+    result = find_different_lines(file1, file2)
+    assert result == {"a", "d"}
+
 
 def test_write_to_file(tmp_path):
     """Тест для функції, що записує рядки у вихідний файл."""
