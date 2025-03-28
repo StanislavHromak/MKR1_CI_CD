@@ -6,8 +6,15 @@ def read_file(file_path):
     except FileNotFoundError:
         return set()
 
+
 def find_common_lines(file1_path, file2_path):
     """Знаходить рядки в обох файлах."""
     lines1 = read_file(file1_path)
     lines2 = read_file(file2_path)
     return lines1.intersection(lines2)
+
+
+def write_to_file(lines, output_path):
+    """Записує рядки у вихідний файл."""
+    with open(output_path, 'w', encoding='utf-8') as file:
+        file.write('\n'.join(sorted(lines)))
