@@ -1,5 +1,4 @@
 import pytest
-import os
 from src.file_compare import (read_file, find_common_lines, find_different_lines,
                               write_to_file, compare_files)
 
@@ -25,12 +24,14 @@ def test_read_file(tmp_path, content, expected):
 
 
 def test_find_common_lines(temp_files):
+    """Тест для функції, що знаходить рядки в обох файлах."""
     file1, file2 = temp_files
     result = find_common_lines(file1, file2)
     assert result == {"b", "c"}
 
 
 def test_find_different_lines(temp_files):
+    """Тест для функції, що знаходить рядки, присутні лише в одному з файлів."""
     file1, file2 = temp_files
     result = find_different_lines(file1, file2)
     assert result == {"a", "d"}
